@@ -82,6 +82,7 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
   --font-anton: var(--font-anton);
+  --font-caveat: var(--font-caveat);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -123,16 +124,21 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --font-anton: var(--font-anton);
+  --font-caveat: var(--font-caveat);
 }
 
 @layer base {
   h1 {
-    @apply text-[148px] font-bold font-anton;
+    @apply text-[150px] font-bold font-anton leading-none;
   }
   h2 {
     @apply text-6xl font-bold font-anton;
   }
   h3 {
-    @apply text-4xl font-bold font-anton;
+    @apply text-5xl font-bold font-anton;
+  }
+  p {
+    @apply text-sm;
   }
 }
