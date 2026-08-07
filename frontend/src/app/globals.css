@@ -130,15 +130,16 @@
 
 @layer base {
   h1 {
-    @apply text-[150px] font-bold font-anton leading-none;
+    @apply text-5xl md:text-6xl md:text-8xl lg:text-[150px] font-bold font-anton leading-none;
   }
   h2 {
-    @apply text-6xl font-bold font-anton;
+    @apply text-3xl md:text-4xl md:text-5xl lg:text-6xl font-bold font-anton;
   }
   h3 {
-    @apply text-5xl font-bold font-anton;
+    @apply text-2xl md:text-3xl md:text-4xl lg:text-5xl font-bold font-anton;
   }
-  p {
-    @apply text-sm;
+  p,
+  span {
+    @apply text-xs md:text-sm;
   }
 }

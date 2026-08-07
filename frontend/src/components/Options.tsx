@@ -33,9 +33,9 @@ const beerOptions = [
 
 const Options = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-20 p-5">
+    <div className="flex flex-col items-center justify-center gap-30 p-5">
       <div className="flex flex-col items-center justify-center gap-5">
-        <span className="font-caveat text-3xl">Availability</span>
+        <span className="font-caveat text-xl md:text-3xl">Availability</span>
         <h1>YEAR ROUND</h1>
       </div>
       <div className="grid grid-cols-5 w-full justify-center items-end">

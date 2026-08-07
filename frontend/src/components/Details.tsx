@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Button } from "./ui/button";
+import { BuyCard }from "./BuyCard";
 
 export const beerStats = [
   {
@@ -23,35 +25,53 @@ export const beerStats = [
 ];
 
 export const Details = () => {
+  const [buying, setBuying] = useState(false);
+
+  const buyProduct = () => {
+    setBuying(true);
+  };
+
+  const handleConfirmPurchase = (items: any[], total: number) => {
+    console.log("Purchased:", items, "Total:", total);
+    setBuying(false);
+    // no backend — just close for now, or show a toast/confirmation
+  };
+
   return (
-    <div className="grid grid-cols-3 items-start justify-center gap-10 p-5">
+    <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-center gap-10 p-5">
       <div className="flex flex-col items-start justify-start gap-5 p-5">
-        <span className="font-caveat text-2xl">Unlimited release</span>
+        <span className="font-caveat text-xl md:text-3xl">Unlimited release</span>
         <h2>
           INIDA PALE
           <br />
           ALE
         </h2>
         <p>
-          India Pale Ale is a style of beer defined by its strong hop content, significant bitterness, and higher alcohol content than classics. While lagers and weiss are all about balance, IPAs are all about hops. The name comes from the era of British colonialism, when in the 18th century beer
+            India Pale Ale is a style of beer defined by its strong hop content, significant bitterness, and higher alcohol content than classics. While lagers and weiss are all about balance, IPAs are all about hops. The name comes from the era of British colonialism, when in the 18th century beer
           was shipped from England to India with hops, which acted as a natural preservative on the long journey. True or false, the name stuck and the beer evolved.
         </p>
-        <Button className="w-40 h-15">Buy Now</Button>
+        <Button
+          className="px-4 py-2 h-10 md:h-15 w-25 md:w-35 font-sm md:font-base"
+          onClick={buyProduct}
+        >
+          Buy Now
+        </Button>
       </div>
-      <div className="grid col-start-3 flex flex-col items-start justify-center gap-5 border-2 p-10">
+       <div className="grid md:col-start-3 flex flex-col items-start justify-center gap-5 border-2 p-10">
         {beerStats.map((stat, index) => (
           <div key={index} className="flex flex-col items-start justify-center">
             <p>{stat.title}</p>
             <p>{stat.fullForm}</p>
             <div className="w-full h-1 bg-gray-500 mb-1"></div>
             <div className="flex items-end">
-              <p className="w-24 text-4xl font-anton">{stat.value}</p>
-
+              <p className="w-24 text-2xl md:text-4xl font-anton">{stat.value}</p>
               <p className="flex-1">{stat.detail}</p>
             </div>
           </div>
         ))}
       </div>
+
+      <BuyCard open={buying} onClose={() => setBuying(false)} onConfirm={handleConfirmPurchase} />
     </div>
   );
 };
